@@ -4,7 +4,25 @@ sudo pip install boto3
 ```
 
 ## Configure
-Edit app.py and insert your Access and Secret key and the region.
+IAM Role with S3 permissions attached to your EC2 instance
+The role should have a policy like AmazonS3FullAccess or a custom policy such as:
+
+json
+Copy
+Edit
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "s3:*",
+        "s3-object-lambda:*"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
 
 ## Run
 ```
